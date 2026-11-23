@@ -1,4 +1,6 @@
-# app/esquemas.py
+from pydantic import BaseModel, Field
+
+
 from pydantic import BaseModel, Field
 
 
@@ -24,5 +26,20 @@ class RutaActualizar(BaseModel):
 
 class Ruta(RutaCrear):
     """Lo que la API devuelve: los cinco campos completos."""
-    
-    
+
+class ProyeccionIngresos(BaseModel):
+    rutas: int
+    frecuencias: int
+    tarifa_promedio: float
+    ingreso_diario: float
+    rutas_con_recargo: int
+    porcentaje_nocturnas: float
+
+
+class CoberturaConductor(BaseModel):
+    total: int
+    asignadas: int
+    pendientes: int
+    porcentaje_cobertura: float
+    tarifa_pendiente_total: int
+    pendiente_mas_cara: str | None
