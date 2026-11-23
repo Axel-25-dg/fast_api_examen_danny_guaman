@@ -1,0 +1,14 @@
+curl -s localhost:8000/rutas | python3 -m json.tool
+curl -s "localhost:8000/rutas?zona=3"
+curl -s "localhost:8000/rutas?zona=3&nocturno=false"
+curl -s "localhost:8000/rutas?zona=3"
+curl -s "localhost:8000/rutas?zona=3&nocturno=false"
+curl -s localhost:8000/rutas/QUI101as/QUI101
+curl -s localhost:8000/rutas/qui101
+curl -s -i localhost:8000/rutas/ZZZ999 | head -1
+curl -s localhost:8000/rutas/ZZZ999
+curl -s -i -X POST localhost:8000/rutas \
+  -H "Content-Type: application/json" \
+  -d '{"codigo": "RED401", "nombre": "Baños", "Tarifa": 4, "zona": 4, "nocturna": true}' | head -1
+
+
